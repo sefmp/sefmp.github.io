@@ -39,11 +39,56 @@
 
 <div class="search-container">
     <h1>Custom Search</h1>
-    <form action="" method="GET" target="_blank">
-        <input type="text" name="q" class="search-input" placeholder="Search on Google">
+    <form id="searchForm" action="javascript:void(0);" onsubmit="handleSearch()">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search on Google">
         <button type="submit" class="search-button">Search</button>
     </form>
 </div>
+
+<script>
+    function handleSearch() {
+        var searchInput = document.getElementById('searchInput').value.trim();
+        var jumpScareKeywords = ["it's me", "its me", "it is me"];  // Add variations as needed
+
+        if (jumpScareKeywords.includes(searchInput.toLowerCase())) {
+            // Trigger jump scare and redirect
+            jumpScare();
+            setTimeout(function() {
+                window.location.href = 'dwnld/index.html';
+            }, 16000); // Redirect after 16 seconds
+        } else {
+            // Perform an actual search
+            var googleSearchURL = 'https://www.google.com/search?q=' + encodeURIComponent(searchInput);
+            window.location.href = googleSearchURL;
+        }
+    }
+
+    function jumpScare() {
+        var jumpScareContainer = document.createElement('div');
+        jumpScareContainer.id = 'jumpScareContainer';
+        jumpScareContainer.style.position = 'fixed';
+        jumpScareContainer.style.top = '0';
+        jumpScareContainer.style.left = '0';
+        jumpScareContainer.style.width = '100%';
+        jumpScareContainer.style.height = '100%';
+        jumpScareContainer.style.background = 'rgba(0, 0, 0, 0.8)';
+        jumpScareContainer.style.zIndex = '9999';
+        jumpScareContainer.style.display = 'flex';
+        jumpScareContainer.style.justifyContent = 'center';
+        jumpScareContainer.style.alignItems = 'center';
+
+        var jumpScareImage = new Image();
+        jumpScareImage.src = 'jumpscare-image.jpg';
+        jumpScareImage.style.width = '100%';
+        jumpScareImage.style.height = '100%';
+
+        var jumpScareAudio = new Audio('jumpscare-sound.mp3');
+        jumpScareAudio.play();
+
+        jumpScareContainer.appendChild(jumpScareImage);
+        document.body.appendChild(jumpScareContainer);
+    }
+</script>
 
 </body>
 </html>

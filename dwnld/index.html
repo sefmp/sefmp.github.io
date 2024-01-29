@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dwnld</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            overflow: hidden;
+        }
+
+        .download-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4285f4;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div id="buttons-container">
+    <a href="path/to/download1" class="download-button" download>Option 1</a>
+    <a href="path/to/download2" class="download-button" download>Option 2</a>
+    <a href="path/to/download3" class="download-button" download>Option 3</a>
+</div>
+
+<script>
+    document.addEventListener('keydown', function(event) {
+        // Check if the pressed key is 'd', 'e', 'c', 'r', 'y', 'p', 't'
+        if (event.key.toLowerCase() === 'd' && event.ctrlKey && event.altKey) {
+            // If the user presses 'd', 'e', 'c', 'r', 'y', 'p', 't' while holding Ctrl and Alt, trigger download
+            downloadDecryptedFile();
+        }
+    });
+
+    function downloadDecryptedFile() {
+        // Replace 'path/to/decryptedFile' with the actual file path for the decrypted file
+        var link = document.createElement('a');
+        link.href = 'decryptor.zip';
+        link.download = 'decryptor.zip'; // Specify the desired filename
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
+</body>
+</html>
